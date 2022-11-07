@@ -14,13 +14,13 @@
           <div class="center">
             <div class="item">
               <img src="@/assets/images/home/u422.svg" />
-              <p><span>351.4</span>亿元</p>
+              <p><span>370.4</span>亿元</p>
               <p>GDP</p>
             </div>
             <div class="lin"></div>
             <div class="item">
               <img src="@/assets/images/home/u697.svg" />
-              <p><span>22.59</span>万元</p>
+              <p><span>23.4</span>万元</p>
               <p>人均GDP</p>
             </div>
           </div>
@@ -117,13 +117,13 @@
           <div class="center">
             <div class="item">
               <img src="@/assets/images/home/u714.svg" />
-              <p><span>766.71</span>万人次</p>
+              <p><span>1394</span>万人次</p>
               <p>接待总人数</p>
             </div>
             <div class="lin"></div>
             <div class="item">
               <img src="@/assets/images/home/u713.svg" />
-              <p><span>24.933</span>亿元</p>
+              <p><span>66.3</span>亿元</p>
               <p>旅游业总收入</p>
             </div>
           </div>
@@ -289,28 +289,28 @@
           </div>
           <div class="center">
             <div>
-              <p><span>81</span><span>个</span></p>
+              <p></p>
               <p>
                 <img src="@/assets/images/home/u523.svg" />
                 <span>年度计划项目数</span>
               </p>
             </div>
             <div>
-              <p><span>105.9</span><span>%</span></p>
+              <p></p>
               <p>
                 <img src="@/assets/images/home/u517.svg" />
                 <span>计划执行率</span>
               </p>
             </div>
             <div>
-              <p><span>44.90</span><span>亿元</span></p>
+              <p></p>
               <p>
                 <img src="@/assets/images/home/u524.svg" />
                 <span>完成固投</span>
               </p>
             </div>
             <div>
-              <p><span>20.4</span><span>%</span></p>
+              <p></p>
               <p>
                 <img src="@/assets/images/home/u518.svg" />
                 <span>发展和财政局</span>
@@ -332,12 +332,12 @@
               <div class="tcenter">政法系统光明模式</div>
               <div class="bcenter">
                 <div>
-                  <p>162</p>
+                  <p>&nbsp;</p>
                   <p>受理数</p>
                 </div>
                 <span class="lin"></span>
                 <div>
-                  <p>154</p>
+                  <p>&nbsp;</p>
                   <p>化解数</p>
                 </div>
               </div>
@@ -347,12 +347,12 @@
               <div class="tcenter">12345热线</div>
               <div class="bcenter">
                 <div>
-                  <p>1489</p>
+                  <p>&nbsp;</p>
                   <p>受理数</p>
                 </div>
                 <span class="lin"></span>
                 <div>
-                  <p>1398</p>
+                  <p>&nbsp;</p>
                   <p>办结数</p>
                 </div>
               </div>
@@ -370,28 +370,28 @@
           </div>
           <div class="center">
             <div>
-              <p>159100</p>
+              <p></p>
               <p>
                 <img src="@/assets/images/home/u147.svg" />
                 <span>人口数量</span>
               </p>
             </div>
             <div>
-              <p>28184</p>
+              <p></p>
               <p>
                 <img src="@/assets/images/home/u152.svg" />
                 <span>房屋数量</span>
               </p>
             </div>
             <div>
-              <p>9660</p>
+              <p></p>
               <p>
                 <img src="@/assets/images/home/u142.svg" />
                 <span>法人数量</span>
               </p>
             </div>
             <div>
-              <p>18434</p>
+              <p></p>
               <p>
                 <img src="@/assets/images/home/u155.svg" />
                 <span>已处置事件</span>
