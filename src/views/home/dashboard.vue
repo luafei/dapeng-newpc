@@ -714,6 +714,27 @@
             <div><span>统计频率：</span><span>天</span></div>
           </div>
         </div>
+        <div class="dpItem middleScreeen">
+          <iframe class="isframe" id="zhtj" src="http://172.21.112.89:6999/jsp/pj-dyjkqtjwb/leader/screen/home/centre_home.jsp" frameborder=0 Border=0 Marginwidth=0 Marginheight=0 width=100% height="100%" scrolling=auto></iframe>
+          <!-- <div class="header" @click="iframeDetail('zhtj')">
+            <span>智慧统计</span>
+            <img src="@/assets/images/home/u23.png" />
+          </div>
+          <div class="center">
+            <div class="title">经济主要指标</div>
+            <div class="mcenter">
+              <div class="">
+                <img src="@/assets/images/home/zhtj_card_bt1.png" alt="">
+                <p>规上工业增加值</p>
+              </div>
+              <span class="lin"></span>
+              <div class="">
+                <img src="@/assets/images/home/zhtj_card_bt2.png" alt="">
+                <p>固定资产投资额</p>
+              </div>
+            </div>
+          </div> -->
+        </div>
       </div>
     </div>
   </div>
@@ -752,6 +773,7 @@ export default {
         sum: "",
         load: "",
       },
+      appContentWidth: 0
     };
   },
   mounted() {
@@ -761,6 +783,8 @@ export default {
     this.initDumpTruck();
     this.initHazardousVehicle();
     this.initGovernService();
+    // 处理 iframe(提供卡片iframe, 链接iframe)
+    this.iframeProcessContent();
   },
   methods: {
     goDetail(type) {
@@ -867,8 +891,51 @@ export default {
                     self.govern.bnbj =  per_percent;
                 }
             });
-        },
-  },
+    },
+    iframeProcessContent() {
+      var _that = this;
+      var iFrame = document.getElementById('zhtj');
+      iFrame.onload = function(){
+        //iframe加载完立即发送一条消息
+        iFrame.contentWindow.postMessage(document.querySelector('html').style.fontSize,'*');
+      }
+      // 页面自适应
+      window.onresize = function () {
+        setRem();
+        iFrame.contentWindow.postMessage(document.querySelector('html').style.fontSize,'*');
+      }
+
+      //回调函数
+      function receiveMessageFromIframePage (event) {
+        console.log('receiveMessageFromIframePage', event)
+        if(!event.data.name) {
+          return
+        }
+        // 返回的地址转化域名 http://172.21.112.89:6999
+        _that.$router.push({
+          name: "iframe",
+          query: {
+            title: event.data.name,
+            url: event.data.url.replace("https://zhtj.dpxq.gov.cn:6888", "http://172.21.112.89:6999")
+          },
+        });
+      }
+      //监听message事件
+      window.addEventListener("message", receiveMessageFromIframePage, false);
+    },
+    iframeDetail(name) {
+      if (name === 'zhtj') {
+        this.$router.push({
+          name: "iframe",
+          query: {
+            title: "智慧统计",
+            // url: "https://172.21.110.10:6888/jsp/pj-dyjkqtjwb/leader/screen/centreScreen.jsp",
+            url: 'http://172.21.112.89:6999/jsp/pj-dyjkqtjwb/leader/screen/centreScreen.jsp'
+          },
+        });
+      }
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -960,6 +1027,7 @@ $deepBlueHeader: #0700bf;
       flex-wrap: wrap;
       justify-content: space-between;
       .dpItem {
+        position: relative;
         width: 432px;
         height: 259px;
         background-color: #ffffff;
@@ -2010,6 +2078,70 @@ $deepBlueHeader: #0700bf;
               height: 80%;
               border: 1px dashed #e9daf6;
             }
+          }
+        }
+        // &.zhtj {
+        //   .header {
+        //     @include head(#3092ed);
+        //   }
+        //   .center {
+        //     height: 180px;
+        //     .title {
+        //       height: 60px;
+        //       font-weight: 700;
+        //       font-size: 22px;
+        //       display: flex;
+        //       align-items: center;
+        //       justify-content: space-around;
+        //     }
+        //     .mcenter {
+        //       height: 120px;
+        //       width: 100%;
+        //       display: flex;
+        //       align-items: center;
+        //       & > div {
+        //         width: 50%;
+        //         display: flex;
+        //         flex-direction: column;
+        //         font-weight: 700;
+        //         font-size: 20px;
+        //         justify-content: space-around;
+        //         align-items: center;
+        //         height: 100%;
+        //         img {
+        //           width: 50px;
+        //           height: 50px;
+        //         }
+        //         div {
+        //           display: flex;
+        //           align-items: center;
+        //           justify-content: space-around;
+        //           width: 100%;
+        //           span {
+        //             &:nth-of-type(2) {
+        //               font-weight: 400;
+        //               font-size: 20px;
+        //               color: #9e9e9e;
+        //             }
+        //           }
+        //         }
+        //       }
+        //       & > .lin {
+        //         height: 80%;
+        //         border: 1px dashed #3092ed;
+        //       }
+        //     }
+        //   }
+        // }
+        &.middleScreeen {
+          iframe {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
           }
         }
       }
