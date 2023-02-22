@@ -777,7 +777,6 @@ export default {
     };
   },
   mounted() {
-    console.log('dashboard')
     this.initTrafficOperation();
     // 泥头车
     this.initDumpTruck();
@@ -907,7 +906,6 @@ export default {
 
       //回调函数
       function receiveMessageFromIframePage (event) {
-        console.log('receiveMessageFromIframePage', event)
         if(!event.data.name) {
           return
         }

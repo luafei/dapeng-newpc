@@ -71,3 +71,11 @@ export function upload(url, params) {
     return `${ymd[0]}年${ymd[1]}月${ymd[2]}日  &nbsp;  ${hisa[0]}:${hisa[1]}:${hisa[2]} &nbsp; 星期${hisa[3]}`
     // return ymd[0]+'年'+ymd[1]+'月'+ymd[2] + '日  ' + hisa[0]+':'+hisa[1]+":"+hisa[2] + ' 星期'+hisa[3]
 }
+
+
+export function getYMDW() {
+    let strTime = parseTime(new Date().getTime(), '{y}-{m}-{d} {h}:{i}:{s}:{a}').split(' ');
+    let ymd = strTime[0].split('-')
+    let hisa = strTime[1].split(':')
+    return `${ymd[0]}年${ymd[1]}月${ymd[2]}日 星期${hisa[3]}`
+}

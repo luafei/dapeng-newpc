@@ -150,7 +150,6 @@ export default {
     this.initData();
   },
   mounted() {
-    console.log("mounted");
     this.initHazardousRanking();
     this.initHazardousDistribution();
     this.initHazardousLoad();
@@ -363,10 +362,7 @@ export default {
             trigger: "axis",
             axisPointer: {
               type: "shadow",
-            },
-            // formatter: function (params) {
-            //     console.log(params); // 当我们想要自定义提示框内容时，可以先将鼠标悬浮的数据打印出来，然后根据需求提取出来即可
-            // }
+            }
           },
           grid: {
             top: "25%",

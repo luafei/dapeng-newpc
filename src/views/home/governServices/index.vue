@@ -317,7 +317,6 @@ export default {
     };
   },
   created() {
-    console.log("created");
     this.initData();
   },
   mounted() {

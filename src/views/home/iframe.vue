@@ -22,7 +22,6 @@ export default {
     };
   },
   created() {
-    console.log('created', this.$route)
     this.title = this.$route.query.title
     this.frameSrc = this.$route.query.url
   },

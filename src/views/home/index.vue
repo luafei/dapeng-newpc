@@ -3,19 +3,14 @@
     <div class="top">
       <div class="left">
         <span class="title">大 鹏 新 区 管 理 服 务 指 挥 平 台</span>
-        <span class="date">2021年7月26日</span>
-        <span class="month">星期一</span>
-        <span class="ssd">
-          <img src="@/assets/images/home/u17.svg" alt="" /> 27~32 晴</span
-        >
+        <span class="date">{{date}}</span>
+        <span class="week">{{week}}</span>
       </div>
       <div class="right">
         <span><img src="@/assets/images/home/u13.svg" alt="" />管理员</span>
         <span><img src="@/assets/images/home/u15.svg" alt="" />全屏</span>
         <span><img src="@/assets/images/home/u14.svg" alt="" />返回</span>
-        <span @click="logout"
-          ><img src="@/assets/images/home/u16.svg" alt="" />退出</span
-        >
+        <span @click="logout"><img src="@/assets/images/home/u16.svg" alt="" />退出</span>
       </div>
     </div>
     <div class="content">
@@ -24,6 +19,7 @@
   </div>
 </template>
 <script>
+import { getYMDW } from "@/utils/util";
 export default {
   name: "home",
   data() {
@@ -47,9 +43,26 @@ export default {
         sum: "",
         load: "",
       },
+      date: "",
+      week: "",
+      timer: null
     };
   },
+  mounted() {
+    this.updateDate();
+  },
   methods: {
+    updateDate() {
+      var data= getYMDW();
+      this.date = data.split(' ')[0];
+      this.week = data.split(' ')[1];
+      this.timer = setInterval(() => {
+        console.log('setInterval')
+        var data= getYMDW();
+        this.date = data.split(' ')[0];
+        this.week = data.split(' ')[1];
+      }, 1000 * 60  )
+    },
     logout() {
       this.$store
         .dispatch("FedLogOut")
@@ -60,6 +73,9 @@ export default {
         });
     },
   },
+  beforeDestroy() {
+    clearInterval(this.timer)
+  }
 };
 </script>
 <style lang="scss" scoped>
